@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Now - NT FRESH FISH</title>
+    <link rel="stylesheet" href="style.css"> 
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="logo..jpg" alt="NT FRESH FISH Logo" class="logo">
+        </div>
+        
+        <nav>
+            <ul>
+                <li><a href="index.html">🏠HOME</a></li>   
+                <li><a href="rate.html">⭐️RATING</a></li> 
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="order-page">
+            <h1>🐬Place Your Order ⚓️</h1>
+            <p>Fresh seafood delivered across Ramanathapuram. Fill the form below or contact us directly!</p>
+
+            <form class="order-form" onsubmit="sendWhatsApp(); return false;">
+                <label for="name" class="visually-hidden">YOUR NAME</label>
+                <input type="text" id="name" placeholder="Your Name" required>
+                
+                <label for="address" class="visually-hidden">ADDRESS (Ramanathapuram)</label>
+                <input type="text" id="address" placeholder="Address (Ramanathapuram)" required>
+                
+                <label for="phone" class="visually-hidden">PHONE NUMBER</label>
+                <input type="tel" id="phone" placeholder=" +91 Phone Number" required>
+                
+                <label for="product" class="visually-hidden">SELECT PRODUCT</label>
+                <select id="product" required>
+                    <option value="">Select Product</option>
+                    <option value="Fish">✯Fish🐬</option>
+                    <option value="Prawns">✯Prawns🦐</option>
+                    <option value="Squid">✯Squid🦑</option>
+                    <option value="Crab">✯Crab🦀</option>
+                </select>
+                
+                <label for="quantity" class="visually-hidden">QUANTITY(kg)</label>
+                <input type="number" id="quantity" placeholder="Quantity (kg)" required min="0.5" step="0.5">
+                
+                <button type="submit">Submit Order Via WhatsApp</button>
+            </form>
+        </section>
+
+        <section class="contact" id="contact">
+            <h2>📞Contact Us</h2>
+            <p>📍 Ramanathapuram, Tamil Nadu</p>
+            <p>📞 <a href="tel:+917904748077" class="contact-link">+91 7904748077</a></p>
+            <p>💬 <a href="https://wa.me/917904748077" class="whatsapp-btn" target="_blank" rel="noopener noreferrer">Chat on WhatsApp</a></p>
+            <p>📧 <a href="mailto:thilothbraveen71@gmail.com" class="contact-link">thilothbraveen71@gmail.com</a></p>
+        </section>
+    </main>
+
+    <footer>
+        <p> NT FRESH FISH | Fresh. Fast. Local Delivery in Ramanathapuram</p>
+    </footer>
+
+    <script>
+        function sendWhatsApp() {
+            // Get form values
+            let name = document.getElementById('name').value;
+            let address = document.getElementById('address').value;
+            let phone = document.getElementById('phone').value;
+            let product = document.getElementById('product').value;
+            let quantity = document.getElementById('quantity').value;
+
+            // Construct the pre-filled message, using %0A for new line and %20 for space
+            let message = `*NEW ORDER (NT FRESH FISH)*%0A%0A*Customer Details:*%0AName: ${name}%0AAddress: ${address}%0APhone: ${phone}%0A%0A*Order Details:*%0AProduct: ${product}%0AQuantity: ${quantity} kg`;
+            
+            // The actual WhatsApp number is used here: 917904748077
+            let whatsappNumber = '917904748077'; 
+            
+            let whatsappUrl = `https://wa.me/${whatsappNumber}?text=${message}`;
+            
+            // Open the WhatsApp URL in a new tab
+            window.open(whatsappUrl, '_blank');
+        }
+    </script>
+
+    <
+  
+</body>
+</html>

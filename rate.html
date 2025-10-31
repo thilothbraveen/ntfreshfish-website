@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rate Us - NT FRESH FISH</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* This is crucial for reversing the order of stars */
+        .rating-stars {
+            display: inline-block;
+            direction: rtl; /* Stars flow right-to-left */
+        }
+        
+        .rating-stars input {
+            display: none; /* Hide the radio buttons */
+        }
+        
+        .rating-stars label {
+            color: #cccccc; /* Default grey star color */
+            font-size: 2.5em; /* Star size */
+            cursor: pointer;
+            padding: 0 3px;
+            transition: color 0.2s;
+        }
+        
+        /* Highlight stars when hovering over them and the stars to the right */
+        .rating-stars label:hover,
+        .rating-stars label:hover ~ label {
+            color: #ffc107; /* Gold on hover */
+        }
+        
+        /* Highlight stars when they are checked (selected) and the stars to the right */
+        .rating-stars input:checked ~ label {
+            color: #ff9800; /* Orange/Gold on selection */
+        }
+
+        /* General Rating Section Styles */
+        .rating-page {
+            text-align: center;
+            padding: 60px 20px;
+            background: #e0fbfc;
+        }
+
+        .rating-form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            max-width: 500px;
+            margin: 30px auto;
+            padding: 25px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .rating-form textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #aaa;
+            border-radius: 5px;
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .rating-form button {
+            background: #0ba0f0;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+        }
+        .rating-form button:hover {
+            background: #10c3f0;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="logo..jpg" alt="NT FRESH FISH Logo" class="logo">
+        </div>
+        
+        <nav>
+            <ul>
+                <li><a href="index.html">HOME</a></li>
+            
+                <li><a href="rate.html" aria-current="page">RATING</a></li> 
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="rating-page">
+            <h1>Rate Our Service! ✨</h1>
+            <p>Your feedback helps us deliver the freshest fish and best service in Ramanathapuram.</p>
+
+            <form class="rating-form" onsubmit="submitRating(); return false;">
+                
+                <p>Select your rating:</p>
+                <div class="rating-stars">
+                    <input type="radio" id="star5" name="rating" value="5" required>
+                    <label for="star5" title="Excellent (5 stars)">★</label>
+                    
+                    <input type="radio" id="star4" name="rating" value="4">
+                    <label for="star4" title="Very Good (4 stars)">★</label>
+                    
+                    <input type="radio" id="star3" name="rating" value="3">
+                    <label for="star3" title="Good (3 stars)">★</label>
+                    
+                    <input type="radio" id="star2" name="rating" value="2">
+                    <label for="star2" title="Fair (2 stars)">★</label>
+                    
+                    <input type="radio" id="star1" name="rating" value="1">
+                    <label for="star1" title="Poor (1 star)">★</label>
+                </div>
+
+                <input type="text" id="raterName" placeholder="Your Name (Optional)">
+                <input type="tel" id="raterPhone" placeholder="Phone Number (Optional)">
+                <textarea id="comments" placeholder="Write your comments here..."></textarea>
+                
+                <button type="submit">Submit Rating via WhatsApp</button>
+            </form>
+        </section>
+
+        <section class="contact" id="contact">
+            <h2>Contact Us</h2>
+            <p>📍 Ramanathapuram, Tamil Nadu</p>
+            <p>📞 <a href="tel:+917904748077" class="contact-link">+91 7904748077</a></p>
+            <p>💬 <a href="https://wa.me/917904748077" class="whatsapp-btn" target="_blank" rel="noopener noreferrer">Chat on WhatsApp</a></p>
+            <p>✉️ thilothbraveen71@gmail.com</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2025 NT FRESH FISH | Fresh. Fast. Local Delivery in Ramanathapuram</p>
+    </footer>
+
+    <script>
+        function submitRating() {
+            // Get the selected rating value
+            let rating = document.querySelector('input[name="rating"]:checked');
+            let ratingValue = rating ? rating.value : 'Not Rated';
+
+            let raterName = document.getElementById('raterName').value || 'Anonymous';
+            let raterPhone = document.getElementById('raterPhone').value || 'Not Provided';
+            let comments = document.getElementById('comments').value || 'No comments.';
+
+            // Construct the pre-filled message
+            let message = `*NEW CUSTOMER RATING (NT FRESH FISH)*%0A%0A*Rating:* ${ratingValue} out of 5 stars%0A%0A*Reviewer Details:*%0AName: ${raterName}%0APhone: ${raterPhone}%0A%0A*Comments:*%0A${comments}`;
+            
+            // Your WhatsApp number
+            let whatsappNumber = '917904748077'; 
+            
+            let whatsappUrl = `https://wa.me/${whatsappNumber}?text=${message}`;
+            
+            // Open the WhatsApp URL in a new tab
+            window.open(whatsappUrl, '_blank');
+        }
+    </script>
+</body>
+</html>
